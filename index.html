@@ -42,9 +42,7 @@
 
     footer{padding:26px 28px;text-align:center;color:var(--muted);font-size:14px}
 
-    /* floating whatsapp */
-    .whatsapp-fab{position:fixed;right:18px;bottom:18px;width:62px;height:62px;border-radius:999px;background:linear-gradient(180deg,#25D366,#128C7E);display:flex;align-items:center;justify-content:center;box-shadow:0 12px 30px rgba(2,6,23,0.65);z-index:1000;border:2px solid rgba(255,255,255,0.06)}
-    .whatsapp-fab svg{width:28px;height:28px;filter:drop-shadow(0 6px 18px rgba(0,0,0,0.35))}
+    /* REMOVIDO: .whatsapp-fab */
 
     /* modal */
     .modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(2,6,23,0.6);z-index:2000;visibility:hidden;opacity:0;transition:opacity .18s}
@@ -52,49 +50,48 @@
     .modal-card{width:420px;max-width:94%;background:linear-gradient(180deg,#07172a,#04202b);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
     .modal-card h3{margin:6px 0 10px}
 
-    /* responsive */
     @media (max-width:880px){
       .hero-card{grid-template-columns:1fr;}
       .logo{width:46px;height:46px}
     }
 
-    /* small animations */
-    .pulse{animation:pulse 2.2s infinite}
-    @keyframes pulse{0%{transform:translateY(0)}50%{transform:translateY(-6px)}100%{transform:translateY(0)}}
-    /* === EFEITO NEON EM TODOS OS BOTÕES === */
-.btn, .whatsapp-fab, nav button {
+.btn, nav button {
   position: relative;
   overflow: hidden;
   transition: box-shadow 0.25s ease, transform 0.15s ease;
 }
 
-/* brilho neon no hover */
 .btn:hover, nav button:hover {
   box-shadow: 0 0 18px rgba(14,165,164,0.75), 0 0 32px rgba(14,165,164,0.45);
 }
 
-/* clique causa pulso */
 .btn:active, nav button:active {
   transform: scale(0.96);
   box-shadow: 0 0 25px rgba(14,165,164,0.95), 0 0 50px rgba(14,165,164,0.6);
 }
+.whatsapp-fab {
+  position: fixed;
+  bottom: 22px;
+  right: 22px;
+  width: 58px;
+  height: 58px;
+  background: #25d366;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  color: white;
+  text-decoration: none;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.4);
+  z-index: 9999;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
 
-/* efeito neon no botão flutuante do WhatsApp */
 .whatsapp-fab:hover {
-  box-shadow: 
-      0 0 12px rgba(37,211,102,0.9),
-      0 0 26px rgba(37,211,102,0.6),
-      0 0 46px rgba(37,211,102,0.4);
-  transform: scale(1.05);
+  transform: scale(1.08);
+  box-shadow: 0 10px 34px rgba(0,0,0,0.55);
 }
-
-.whatsapp-fab:active {
-  transform: scale(0.92);
-  box-shadow: 
-      0 0 20px rgba(37,211,102,1),
-      0 0 50px rgba(37,211,102,0.7);
-}
-
   </style>
 </head>
 <body>
@@ -140,7 +137,7 @@
 
           <div class="card" style="min-width:220px">
             <h3>Doação de alimentos</h3>
-            <p class="note">Aceitamos apenas os itens listados abaixo. Para doar, clique no botão do WhatsApp (canto inferior direito) e combine a entrega.</p>
+            <p class="note">Aceitamos apenas os itens listados abaixo. Para doar, combine a entrega pelo WhatsApp.</p>
             <ul class="allowed">
               <li>Arroz</li>
               <li>Feijão</li>
@@ -202,13 +199,10 @@ Junte-se a nós nessa causa. Seu gesto pode salvar vidas.</p>
   </main>
 
   <footer>
-     — confirme todas as informações antes de divulgar. PIX: <strong id="pixFooter">096.319.873-45</strong>
+     © 2025 Redes 3, Inc — confirme todas as informações antes de divulgar. PIX: <strong id="pixFooter">096.319.873-45</strong>
   </footer>
 
-  <!-- floating whatsapp button -->
-  <a id="waFab" class="whatsapp-fab" href="https://wa.me/5585997887354?text=Ol%C3%A1%2C%20gostaria%20de%20ajudar" target="_blank" rel="noopener" aria-label="Abrir WhatsApp">
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.52 3.478A11.848 11.848 0 0012 .25c-6.55 0-11.87 5.32-11.87 11.87 0 2.093.545 4.106 1.578 5.9L.5 23.5l5.59-1.5a11.81 11.81 0 005.91 1.5c6.55 0 11.87-5.32 11.87-11.87 0-3.17-1.24-6.145-3.79-8.6z" fill="#fff" opacity=".06"/><path d="M17.472 14.382c-.29-.146-1.712-.844-1.977-.94-.266-.096-.46-.146-.655.146-.195.293-.754.94-.924 1.13-.17.195-.34.219-.63.073-.29-.146-1.225-.452-2.333-1.436-.863-.768-1.446-1.717-1.616-2.01-.17-.293-.018-.45.128-.597.13-.129.29-.34.439-.51.146-.171.195-.293.292-.488.098-.195.049-.366-.024-.512-.073-.146-.655-1.58-.897-2.16-.236-.57-.477-.49-.655-.5l-.562-.01c-.195 0-.512.073-.78.366-.268.293-1.02 1-1.02 2.438 0 1.437 1.042 2.82 1.187 3.015.146.195 2.05 3.13 4.97 4.385 2.187 1.02 3.133 1.058 3.387.99.244-.07 1.58-.644 1.8-1.266.219-.622.219-1.155.153-1.266-.073-.111-.266-.17-.555-.317z" fill="#fff"/></svg>
-  </a>
+  <!-- REMOVIDO: botão flutuante do WhatsApp -->
 
   <!-- PIX modal -->
   <div id="pixModal" class="modal" onclick="if(event.target===this) closePixModal()">
@@ -233,15 +227,11 @@ Junte-se a nós nessa causa. Seu gesto pode salvar vidas.</p>
   </div>
 
   <script>
-    // configuration (edite se necessário)
     const PIX_KEY = '096631987345';
-    const WHATS_NUMBER = '5585997887354'; // formato internacional sem +
+    const WHATS_NUMBER = '5585997887354';
 
-    // set values
-    document.getElementById('pixKey').textContent = PIX_KEY;
     document.getElementById('pixModalKey').textContent = PIX_KEY;
     document.getElementById('pixFooter').textContent = PIX_KEY;
-    document.getElementById('waFab').href = `https://wa.me/${WHATS_NUMBER}?text=Ol%C3%A1%2C%20gostaria%20de%20ajudar`;
 
     function copyPix(fromModal){
       navigator.clipboard.writeText(PIX_KEY).then(()=>{
@@ -261,8 +251,13 @@ Junte-se a nós nessa causa. Seu gesto pode salvar vidas.</p>
       window.open(`https://wa.me/${WHATS_NUMBER}?text=${encoded}`,'_blank');
     }
 
-    // small accessibility: allow Esc to close modal
     document.addEventListener('keydown', e=>{ if(e.key==='Escape') closePixModal(); });
   </script>
+  <a href="https://wa.me/5585997887354?text=Olá!%20Quero%20ajudar%20no%20projeto."
+   class="whatsapp-fab"
+   target="_blank"
+   rel="noopener">
+  💬
+</a>
 </body>
 </html>
